@@ -1,0 +1,67 @@
+1. Print "Hello world"
+  How many characters are there in "Hello world"?
+2. Print "Hello world 2017" from the sum of "Hello",'world' and 2017
+3. import numpy
+4. Make a list of an integer from 1 to 10.
+5. Insert the number 11 at the end of the list 
+    Hint: you can use the append method
+6. Reverse the list
+
+7. Create a function that returns the square of the list 
+    hint: transform the list into a numpy array.
+   
+   How many interger are superior to 50?
+    
+8. Create a dictionary in which the keys are the acronyms of the USP institutes and the values the complete name
+
+    Escola de Artes, Ciências e Humanidades (EACH)
+    Escola de Comunicações e Artes (ECA)
+    Escola de Educação Física e Esporte (EEFE)
+    Escola de Enfermagem (EE)
+    Escola Politécnica (Poli)
+    Faculdade de Arquitetura e Urbanismo (FAU)
+
+
+9. In this dictionary, insert the IAG Python Boot Camp with the PBCII acronym
+
+10. Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x^2). Go to the editor
+    Sample Dictionary ( n = 100) : 
+    Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25 ....}
+    
+11. - Defina a variável a = 'maine coon' e com apenas 1 (um) comando sobre a variável:
+ 1) Escreva MAINE COON
+ 2) Escreva Maine Coon
+ 3) Inverta maine coon
+
+
+
+12. - Via de regra, os índices de uma string são imutáveis. Crie uma
+ variável e atribua o valor 'Bitcheti'.
+ Usando as operações com strings que você aprendeu, faça o último 'i' na variável ser transformado em 'e' (sem redefinir a variável).
+
+
+
+13. - Dada a variável var = 'Para medir o calor do dia, olhem para o comprimento do gato que dorme.'
+ 1) Qual o tamanho da string?
+ 2) Verifique se começa com 'p'? Justifique sua resposta
+ 3) Verifique se termina com '.'
+ 4) Verifique a posição do caractere ','
+ 5) Troque o caractere '.' por '!'
+ 6) Dada a lista mercado = ['1 kg de banana', '12 ovos', '1kg de farinha'], acrescente a string 'fermento em pó'.
+
+
+
+14. - Crie um código para uma outra pessoa executar. Pergunte seu nome e a convide para tomar um chá, um café ou um suco. Deixe a opção de ela não querer tomar nada; caso ela escolha esta opção escreva um smile triste.
+
+
+
+15. - Tomo lanche todas as noites na faculdade, de segunda a sexta. Faça um código, usando contadores e acumuladores, que calcule quanto gasto por semana.
+
+16. - Faça uma função para pedir ao usuário dois números e calcular a divisão entre eles.
+ Informe:
+ - o valor exato da divisão 
+ - o valor inteiro
+ - o resto
+
+
+
