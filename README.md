@@ -2,6 +2,11 @@
 II IAG Python Boot Camp lectures and hands-on materials.
 This material is free and available for anyone who wishes to learn to code using Python. In our first edition, this event was focused on Astronomy/Astrophysics and in this edition we offer more general instructions for people of any area of research who wishes to learn how to code in Python.
 
+## Our Lecturers:
+@danmoser
+@b1quint
+
+
 ## For Daniel Moser's lectures, you can also access them in the web:
 
 Object Oriented Programming (OOP): http://danmoser.github.io/notes/python-oop.html
