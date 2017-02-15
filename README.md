@@ -1,5 +1,6 @@
 # Material
-Lecture's and hands-on materials
+II IAG Python Boot Camp lectures and hands-on materials.
+This material is free and available for anyone who wishes to learn to code using Python. In our first edition, this event was focused on Astronomy/Astrophysics and in this edition we offer more general instructions for people of any area of research who wishes to learn how to code in Python.
 
 ## For Daniel Moser's lectures, you can also access them in the web:
 
@@ -11,18 +12,6 @@ Regex:
 - http://danmoser.github.io/notes/regex.html
 
 - https://www.regex101.com/
-
-## Sharing and Discussions
-
-For all those that are interested in make questions or share material, packages or 
-anything else related to the Python Bootcamp 2017, please, use the link bellow:
-
-https://pbc-iag2017.slack.com/
-
-You will have to sign up and login to have access.
-
-Please use the channel #questions if you have any questions related to the talks 
-presented here or the channel #sharing for sharing material with others
 
 ## Documentation
 
