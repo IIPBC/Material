@@ -12,6 +12,18 @@ Regex:
 
 - https://www.regex101.com/
 
+## Sharing and Discussions
+
+For all those that are interested in make questions or share material, packages or 
+anything else related to the Python Bootcamp 2017, please, use the link bellow:
+
+https://pbc-iag2017.slack.com/
+
+You will have to sign up and login to have access.
+
+Please use the channel #questions if you have any questions related to the talks 
+presented here or the channel #sharing for sharing material with others
+
 ## Documentation
 
 Python Documentation Good Practices - **PEP8**: https://www.python.org/dev/peps/pep-0008/
