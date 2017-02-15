@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>Regular expressions (re ou regex)</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7614 2013-02-21 15:55:51Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<style type="text/css">
+
+/*body {
+   width: 1000px;
+   margin-left: auto;
+   margin-right: auto;
+}
+*/
+table {
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    vertical-align: center;
+    valig: center;
+}
+
+th,
+td {
+    padding: 5px;
+    vertical-align: middle;
+    /*text-align: left;*/
+    /*border-bottom: 1px solid #ddd;*/
+}
+
+tr:nth-child(even) {
+    background-color: #e6e6e6
+}
+
+tr:hover {
+    background-color: #bfbfbf
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+p {
+    max-width: 1000px;
+    text-align: justify;
+    text-justify: inter-word;
+} 
+
+li {
+    max-width: 1000px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+</style>
+</head>
+<body>
+<div class="document" id="regular-expressions-re-ou-regex">
+<h1 class="title">Regular expressions (<em>re</em> ou <em>regex</em>)</h1>
+
+<p>(<strong>Expressões regulares</strong>)</p>
+<p>Daniel Moser</p>
+<p>Feb 15th, 2017</p>
+<p>2nd IAG Python Boot Camp</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#preliminaries" id="id1">Preliminaries</a></li>
+<li><a class="reference internal" href="#basics" id="id2">Basics</a></li>
+<li><a class="reference internal" href="#examples" id="id3">Examples</a><ul>
+<li><a class="reference internal" href="#from-wikipedia" id="id4">From Wikipedia:</a></li>
+<li><a class="reference internal" href="#others" id="id5">Others</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#online-testers" id="id6">Online testers</a></li>
+<li><a class="reference internal" href="#python" id="id7">Python</a><ul>
+<li><a class="reference internal" href="#python-examples" id="id8">Python examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#good-references" id="id9">Good references</a></li>
+<li><a class="reference internal" href="#exercise" id="id10">Exercise</a></li>
+</ul>
+</div>
+<div class="section" id="preliminaries">
+<h1><a class="toc-backref" href="#id1">Preliminaries</a></h1>
+<div class="figure align-center">
+<img alt="../figs/regex-raiznutella.png" src="../figs/regex-raiznutella.png" style="width: 640px;" />
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Pythonista raiz</th>
+<th class="head">Pythonista nutella</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Segue PEP8</td>
+<td>Estilo é o do momento</td>
+</tr>
+<tr><td>Usa <tt class="docutils literal">docstrings</tt></td>
+<td>Comenta com <em>#</em></td>
+</tr>
+<tr><td>Usa editor de texto</td>
+<td>Usa <em>PyCharm</em></td>
+</tr>
+<tr><td>Testa código no <tt class="docutils literal">ipython</tt></td>
+<td>Usa <em>Jupyter/Notebook</em></td>
+</tr>
+<tr><td>Codifica em OOP</td>
+<td>Codifica em procedural</td>
+</tr>
+<tr><td>Usa <tt class="docutils literal">regex</tt></td>
+<td>Manipula strings como <tt class="docutils literal">str</tt></td>
+</tr>
+<tr><td>Publica código no <tt class="docutils literal">PyPi</tt></td>
+<td>Publica código no <em>github</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="basics">
+<h1><a class="toc-backref" href="#id2">Basics</a></h1>
+<p>A <strong>regular expression</strong> is a sequence of characters that define a <strong>search pattern</strong>. In other words, is a specific textual syntax for representing patterns that a matching text need to conform to.</p>
+<p>Must read: Paulo Penteado's talk <a class="reference external" href="http://dl.dropbox.com/u/6569986/gai/pp_cc_strings.pdf">Processing strings (PDF)</a></p>
+<dl class="docutils">
+<dt>And.. <em>Read the Docs</em>!</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/2/library/re.html">https://docs.python.org/2/library/re.html</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/re.html">https://docs.python.org/3/library/re.html</a></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li>regex recognizes special characters with <tt class="docutils literal">&quot;\&quot;</tt> (example: <tt class="docutils literal">\n, \t</tt>).</li>
+<li><tt class="docutils literal">.</tt> any character, but new line.  If the <em>DOTALL</em> flag has been specified, this matches any character including a newline.</li>
+<li><tt class="docutils literal">^</tt> beginning of a string. In Python <em>MULTILINE</em> mode, the beginning of a line</li>
+<li><tt class="docutils literal">$</tt> end of a string or before the end of a line</li>
+<li><tt class="docutils literal">*</tt> many occurrences</li>
+<li><tt class="docutils literal">+</tt> one or more occurrences</li>
+<li><tt class="docutils literal">?</tt> 0 or 1 occurrence</li>
+<li><tt class="docutils literal">{m}</tt> the exact pattern <em>m</em>-times</li>
+<li><tt class="docutils literal">{m,}</tt> the exact pattern <em>m</em> or more times</li>
+<li><tt class="docutils literal">{m,n}</tt> the exact pattern between <em>m</em> and <em>n</em> times</li>
+<li><tt class="docutils literal">{,n}</tt> the exact pattern <em>n</em> or less times</li>
+<li><tt class="docutils literal">\w</tt> Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_].</li>
+<li><tt class="docutils literal">\W</tt> Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].</li>
+<li>... many, many more.</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h1><a class="toc-backref" href="#id3">Examples</a></h1>
+<div class="section" id="from-wikipedia">
+<h2><a class="toc-backref" href="#id4">From Wikipedia:</a></h2>
+<p>Text to be working over:</p>
+<pre class="literal-block">
+&quot;at&quot;, &quot;bat&quot;, &quot;cat&quot;, &quot;hat&quot;, &quot;[rat]&quot;, &quot;dog&quot;;
+&quot;at&quot;, &quot;ccat&quot;, &quot;chat&quot;, &quot;hcat&quot;, &quot;hhat&quot;, &quot;s&quot;, &quot;saw&quot;, &quot;seed&quot;.
+</pre>
+<p>Regex:</p>
+<ul class="simple">
+<li><tt class="docutils literal">.at</tt> matches any three-character string ending with &quot;at&quot;, including &quot;hat&quot;, &quot;cat&quot;, and &quot;bat&quot;.</li>
+<li><tt class="docutils literal">[hc]at</tt> matches &quot;hat&quot; and &quot;cat&quot;.</li>
+<li><tt class="docutils literal">[^b]at</tt> matches all strings matched by .at except &quot;bat&quot;.</li>
+<li><tt class="docutils literal">[^hc]at</tt> matches all strings matched by .at other than &quot;hat&quot; and &quot;cat&quot;.</li>
+<li><tt class="docutils literal">^[hc]at</tt> matches &quot;hat&quot; and &quot;cat&quot;, but only at the beginning of the string or line.</li>
+<li><tt class="docutils literal">[hc]at$</tt> matches &quot;hat&quot; and &quot;cat&quot;, but only at the end of the string or line.</li>
+<li><tt class="docutils literal"><span class="pre">\[.\]</span></tt> matches any single character surrounded by &quot;[&quot; and &quot;]&quot; since the brackets are escaped, for example: &quot;[a]&quot; and &quot;[b]&quot;.</li>
+<li><tt class="docutils literal">s.*</tt> matches s followed by zero or more characters, for example: &quot;s&quot; and &quot;saw&quot; and &quot;seed&quot;.</li>
+<li><tt class="docutils literal"><span class="pre">[hc]+at</span></tt> matches &quot;hat&quot;, &quot;cat&quot;, &quot;hhat&quot;, &quot;chat&quot;, &quot;hcat&quot;, &quot;cchchat&quot;, and so on, but not &quot;at&quot;.</li>
+<li><tt class="docutils literal"><span class="pre">[hc]?at</span></tt> matches &quot;hat&quot;, &quot;cat&quot;, and &quot;at&quot;.</li>
+<li><tt class="docutils literal"><span class="pre">[hc]*at</span></tt> matches &quot;hat&quot;, &quot;cat&quot;, &quot;hhat&quot;, &quot;chat&quot;, &quot;hcat&quot;, &quot;cchchat&quot;, &quot;at&quot;, and so on.</li>
+<li><tt class="docutils literal">cat|dog</tt> matches &quot;cat&quot; or &quot;dog&quot;.</li>
+</ul>
+</div>
+<div class="section" id="others">
+<h2><a class="toc-backref" href="#id5">Others</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">[^\s]+</span></tt> returns a word until the first space/empty character.</li>
+<li><tt class="docutils literal"><span class="pre">^\&quot;(?!.*s.*).*</span></tt> returns all line content starting with <tt class="docutils literal">&quot;</tt> and that <em>do not</em> contain the letter &quot;s&quot; (case sensitive); <em>MULTILINE</em> mode.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="online-testers">
+<h1><a class="toc-backref" href="#id6">Online testers</a></h1>
+<p>Choose one (or several)!!</p>
+<ul class="simple">
+<li><a class="reference external" href="https://regex101.com">https://regex101.com</a></li>
+<li><a class="reference external" href="http://www.regexpal.com">http://www.regexpal.com</a></li>
+<li><a class="reference external" href="http://regex.larsolavtorvik.com">http://regex.larsolavtorvik.com</a></li>
+<li><a class="reference external" href="http://www.nregex.com">http://www.nregex.com</a></li>
+<li><a class="reference external" href="http://www.rubular.com">http://www.rubular.com</a></li>
+<li><a class="reference external" href="http://www.myregexp.com">http://www.myregexp.com</a></li>
+</ul>
+</div>
+<div class="section" id="python">
+<h1><a class="toc-backref" href="#id7">Python</a></h1>
+<ul class="simple">
+<li><tt class="docutils literal">re</tt>: built-in regex module</li>
+<li><tt class="docutils literal">regex</tt>: third-part regex module (a bit more features)</li>
+</ul>
+<div class="section" id="python-examples">
+<h2><a class="toc-backref" href="#id8">Python examples</a></h2>
+<pre class="code python literal-block">
+<span class="literal string doc">&quot;&quot;&quot;Split example&quot;&quot;&quot;</span>
+
+<span class="keyword namespace">import</span> <span class="name namespace">re</span>
+
+<span class="name">regex</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="literal string">r'\W+'</span><span class="punctuation">)</span>
+<span class="name">regex</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">(</span><span class="literal string">'This is a test, short and sweet, of split().'</span><span class="punctuation">)</span>
+</pre>
+<pre class="code python literal-block">
+<span class="literal string doc">&quot;&quot;&quot;Substitution example&quot;&quot;&quot;</span>
+
+<span class="keyword">def</span> <span class="name function">start_case_words</span><span class="punctuation">(</span><span class="name">s</span><span class="punctuation">):</span>
+    <span class="literal string doc">&quot;&quot;&quot; Function to put a string in Start Case.
+
+    It can by vectorized by numpy: ``vecstart = np.vectorize(start_case_words) &quot;&quot;&quot;</span>
+    <span class="keyword">return</span> <span class="name">re</span><span class="operator">.</span><span class="name">sub</span><span class="punctuation">(</span><span class="literal string">r'\w+'</span><span class="punctuation">,</span> <span class="keyword">lambda</span> <span class="name">m</span><span class="punctuation">:</span><span class="name">m</span><span class="operator">.</span><span class="name">group</span><span class="punctuation">(</span><span class="literal number integer">0</span><span class="punctuation">)</span><span class="operator">.</span><span class="name">capitalize</span><span class="punctuation">(),</span> <span class="name">s</span><span class="punctuation">)</span>
+</pre>
+<pre class="code python literal-block">
+<span class="literal string doc">&quot;&quot;&quot;All matches examples&quot;&quot;&quot;</span>
+
+<span class="name">rule</span> <span class="operator">=</span> <span class="literal string">r'^&gt;([^\n\r]+)[\n\r]([A-Z\n\r]+)'</span>
+
+<span class="name">regex</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="name">rule</span><span class="punctuation">,</span> <span class="name">re</span><span class="operator">.</span><span class="name">MULTILINE</span><span class="punctuation">)</span>
+<span class="name">matches0</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+<span class="keyword">for</span> <span class="name">m</span> <span class="operator word">in</span> <span class="name">regex</span><span class="operator">.</span><span class="name">finditer</span><span class="punctuation">(</span><span class="name">text</span><span class="punctuation">):</span>
+    <span class="name">matches0</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="name">m</span><span class="operator">.</span><span class="name">groups</span><span class="punctuation">())</span>
+
+<span class="comment"># for m in matches0:</span>
+<span class="comment">#     print 'Name: %s\nSequence:%s' % (m[0], m[1])</span>
+
+<span class="comment"># Other way</span>
+<span class="name">regex</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="name">rule</span><span class="punctuation">,</span> <span class="name">re</span><span class="operator">.</span><span class="name">MULTILINE</span><span class="punctuation">)</span>
+<span class="name">matches1</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="name">m</span><span class="operator">.</span><span class="name">groups</span><span class="punctuation">()</span> <span class="keyword">for</span> <span class="name">m</span> <span class="operator word">in</span> <span class="name">regex</span><span class="operator">.</span><span class="name">finditer</span><span class="punctuation">(</span><span class="name">text</span><span class="punctuation">)]</span>
+
+<span class="comment"># Other way (MUCH better):</span>
+<span class="name">regex</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="name">rule</span><span class="punctuation">,</span> <span class="name">re</span><span class="operator">.</span><span class="name">MULTILINE</span><span class="punctuation">)</span>
+<span class="name">matches2</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">findall</span><span class="punctuation">(</span><span class="name">rule</span><span class="punctuation">,</span> <span class="name">text</span><span class="punctuation">)</span>
+
+<span class="comment"># Another:</span>
+<span class="name">regex</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="name">rule</span><span class="punctuation">,</span> <span class="name">re</span><span class="operator">.</span><span class="name">MULTILINE</span><span class="punctuation">)</span>
+<span class="name">matches3</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="name">rule</span><span class="punctuation">,</span> <span class="name">re</span><span class="operator">.</span><span class="name">MULTILINE</span><span class="punctuation">)</span><span class="operator">.</span><span class="name">findall</span><span class="punctuation">(</span><span class="name">text</span><span class="punctuation">)</span>
+</pre>
+</div>
+</div>
+<div class="section" id="good-references">
+<h1><a class="toc-backref" href="#id9">Good references</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="http://overapi.com/regex">http://overapi.com/regex</a></li>
+<li><a class="reference external" href="https://docs.python.org/2/library/re.html">https://docs.python.org/2/library/re.html</a></li>
+<li><a class="reference external" href="https://docs.python.org/2/howto/regex.html">https://docs.python.org/2/howto/regex.html</a></li>
+<li><a class="reference external" href="http://www.tutorialspoint.com/python/python_reg_expressions.htm">http://www.tutorialspoint.com/python/python_reg_expressions.htm</a></li>
+</ul>
+</div>
+<div class="section" id="exercise">
+<h1><a class="toc-backref" href="#id10">Exercise</a></h1>
+<ol class="arabic simple">
+<li>From the text below:</li>
+</ol>
+<ul class="simple">
+<li><ol class="first loweralpha">
+<li>Retrieve all lines that contains the word &quot;better&quot;.</li>
+</ol>
+</li>
+<li><ol class="first loweralpha" start="2">
+<li>Count the length of each sentence (in words).</li>
+</ol>
+</li>
+</ul>
+<pre class="literal-block">
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+</pre>
+<ol class="arabic simple" start="2">
+<li>Create a dictionary in which the keys are the acronyms of the USP institutes and the values the complete name. You <strong>must</strong> use <tt class="docutils literal">regex</tt>!</li>
+</ol>
+<pre class="literal-block">
+Escola de Artes, Ciências e Humanidades (EACH)
+Escola de Comunicações e Artes (ECA)
+Escola de Educação Física e Esporte (EEFE)
+Escola de Enfermagem (EE)
+Escola Politécnica (Poli)
+Faculdade de Arquitetura e Urbanismo (FAU)
+</pre>
+<!-- "Best" solution:
+
+rule = r"^(.*)\((.*)\)"
+
+Alternative:
+
+MULTILINE mode
+rule_vals = r'^(.*?)\('
+rule_keys = r'\((.*)\)'
+
+regex = re.compile(rule, re.MULTILINE)
+matches = [m.groups() for m in regex.finditer(text)] -->
+</div>
+</div>
+</body>
+</html>
