@@ -1,3 +1,4 @@
 # Ignoring PyCharm Files
 .idea
 PyCharm_Examples/.idea
+PyCharm_Examples/.idea/*.xml
