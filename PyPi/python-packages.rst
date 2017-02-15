@@ -41,6 +41,7 @@ How do I import a package in my code?
 How do I properly install a Python package?
 =============================================
 *Answer*: one of two ways:
+
 - ``python setup.py install`` (in the package main folder)
 - using ``pip``!!!
 
@@ -86,7 +87,7 @@ How do I publish in the ``PyPi``??
 
 - Make sure you know how to build a module.
 - Make sure your code is working.
-- Make sure your revised your code with good programming practices (coding style, documentation (with examples), compatibility between versions, unit testing...)
+- Make sure your revised your code with good programming practices (coding style, documentation [with examples], compatibility between versions, unit testing...)
 - Generate a compatible ``setup.py`` file.
 - Test it uploading to ``testPyPi``.
 - Upload it to ``PyPi``.

@@ -51,6 +51,8 @@ And.. *Read the Docs*!
 - ``{,n}`` the exact pattern *n* or less times
 - ``\w`` Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9\_].
 - ``\W`` Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9\_].
+- ``()`` Defines a group
+- ``(?P<id>)`` name the group with *id*
 - ... many, many more.
 
 
@@ -116,6 +118,41 @@ Python
 
 Python examples
 ------------------
+.. code:: python
+
+    """Rapid `regex` test. Output: True/False"""
+
+    if re.search("regex pattern", subject):
+        print('Pattern found!')
+    else:
+        print('Pattern not found!')
+
+    # To use the regular expression multiple times:
+    re_obj = re.compile("regex pattern")
+    if re_obj.search(subject):
+        print('Pattern found!')
+    else:
+        print('Pattern not found!')
+
+.. code:: python
+
+    """Retrieving the matched text"""
+
+    match_obj = re.search("regex pattern", subject)
+    if match_obj:
+        result = match_obj.group()
+    else:
+        result = ""  # or None
+
+    # To use the regular expression multiple times:
+    re_obj = re.compile("regex pattern")
+    match_obj = re_obj.search(subject)
+    if match_obj:
+        result = match_obj.group()
+    else:
+        result = ""  # or None
+
+
 .. code:: python
 
     """Split example"""
@@ -217,6 +254,7 @@ Exercise
     "Best" solution:
 
     rule = r"^(.*)\((.*)\)"
+    rule = r"^(?P<extenso>.*)\((?<sigla>.*)\)"
 
     Alternative:
 

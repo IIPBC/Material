@@ -479,6 +479,8 @@ li {
 <li><tt class="docutils literal">{,n}</tt> the exact pattern <em>n</em> or less times</li>
 <li><tt class="docutils literal">\w</tt> Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_].</li>
 <li><tt class="docutils literal">\W</tt> Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].</li>
+<li><tt class="docutils literal">()</tt> Defines a group</li>
+<li><tt class="docutils literal"><span class="pre">(?P&lt;id&gt;)</span></tt> name the group with <em>id</em></li>
 <li>... many, many more.</li>
 </ul>
 </div>
@@ -535,6 +537,38 @@ li {
 </ul>
 <div class="section" id="python-examples">
 <h2><a class="toc-backref" href="#id8">Python examples</a></h2>
+<pre class="code python literal-block">
+<span class="literal string doc">&quot;&quot;&quot;Rapid `regex` test. Output: True/False&quot;&quot;&quot;</span>
+
+<span class="keyword">if</span> <span class="name">re</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span><span class="literal string">&quot;regex pattern&quot;</span><span class="punctuation">,</span> <span class="name">subject</span><span class="punctuation">):</span>
+    <span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">'Pattern found!'</span><span class="punctuation">)</span>
+<span class="keyword">else</span><span class="punctuation">:</span>
+    <span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">'Pattern not found!'</span><span class="punctuation">)</span>
+
+<span class="comment"># To use the regular expression multiple times:</span>
+<span class="name">re_obj</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="literal string">&quot;regex pattern&quot;</span><span class="punctuation">)</span>
+<span class="keyword">if</span> <span class="name">re_obj</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span><span class="name">subject</span><span class="punctuation">):</span>
+    <span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">'Pattern found!'</span><span class="punctuation">)</span>
+<span class="keyword">else</span><span class="punctuation">:</span>
+    <span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">'Pattern not found!'</span><span class="punctuation">)</span>
+</pre>
+<pre class="code python literal-block">
+<span class="literal string doc">&quot;&quot;&quot;Retrieving the matched text&quot;&quot;&quot;</span>
+
+<span class="name">match_obj</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span><span class="literal string">&quot;regex pattern&quot;</span><span class="punctuation">,</span> <span class="name">subject</span><span class="punctuation">)</span>
+<span class="keyword">if</span> <span class="name">match_obj</span><span class="punctuation">:</span>
+    <span class="name">result</span> <span class="operator">=</span> <span class="name">match_obj</span><span class="operator">.</span><span class="name">group</span><span class="punctuation">()</span>
+<span class="keyword">else</span><span class="punctuation">:</span>
+    <span class="name">result</span> <span class="operator">=</span> <span class="literal string">&quot;&quot;</span>  <span class="comment"># or None</span>
+
+<span class="comment"># To use the regular expression multiple times:</span>
+<span class="name">re_obj</span> <span class="operator">=</span> <span class="name">re</span><span class="operator">.</span><span class="name">compile</span><span class="punctuation">(</span><span class="literal string">&quot;regex pattern&quot;</span><span class="punctuation">)</span>
+<span class="name">match_obj</span> <span class="operator">=</span> <span class="name">re_obj</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span><span class="name">subject</span><span class="punctuation">)</span>
+<span class="keyword">if</span> <span class="name">match_obj</span><span class="punctuation">:</span>
+    <span class="name">result</span> <span class="operator">=</span> <span class="name">match_obj</span><span class="operator">.</span><span class="name">group</span><span class="punctuation">()</span>
+<span class="keyword">else</span><span class="punctuation">:</span>
+    <span class="name">result</span> <span class="operator">=</span> <span class="literal string">&quot;&quot;</span>  <span class="comment"># or None</span>
+</pre>
 <pre class="code python literal-block">
 <span class="literal string doc">&quot;&quot;&quot;Split example&quot;&quot;&quot;</span>
 
@@ -638,6 +672,7 @@ Faculdade de Arquitetura e Urbanismo (FAU)
 <!-- "Best" solution:
 
 rule = r"^(.*)\((.*)\)"
+rule = r"^(?P<extenso>.*)\((?<sigla>.*)\)"
 
 Alternative:
 
