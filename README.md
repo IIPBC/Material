@@ -7,7 +7,10 @@ Object Oriented Programming (OOP): http://danmoser.github.io/notes/python-oop.ht
 
 Python Packages (PyPI): http://danmoser.github.io/notes/python-packages.html
 
-Regex: http://danmoser.github.io/notes/regex.html
+Regex: 
+- http://danmoser.github.io/notes/regex.html
+
+- https://www.regex101.com/
 
 ## Documentation
 
@@ -24,5 +27,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
 
 ![Beyoncé](http://angeliquevanrensburg.co.za/wp-content/uploads/2016/11/12342748_1644066492484864_8867908136104707994_n.jpg)
