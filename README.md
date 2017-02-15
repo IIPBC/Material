@@ -15,14 +15,12 @@ Regex:
 ## Sharing and Discussions
 
 For all those that are interested in make questions or share material, packages or 
-anything else related to the Python Bootcamp 2017, please, use the link bellow:
+anything else related to the Python Bootcamp 2017, please, use the links bellow:
 
-https://pbc-iag2017.slack.com/
+[PBC-IAG-2017/sharing](https://gitter.im/PBC-IAG-2017/questions?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+[PBC-IAG-2017/questions](https://gitter.im/PBC-IAG-2017/sharing?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 You will have to sign up and login to have access.
-
-Please use the channel #questions if you have any questions related to the talks 
-presented here or the channel #sharing for sharing material with others
 
 ## Documentation
 
