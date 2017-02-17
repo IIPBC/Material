@@ -1,0 +1,8 @@
+README.rst
+setup.py
+iagpyboot/__init__.py
+iagpyboot/modules.py
+iagpyboot.egg-info/PKG-INFO
+iagpyboot.egg-info/SOURCES.txt
+iagpyboot.egg-info/dependency_links.txt
+iagpyboot.egg-info/top_level.txt

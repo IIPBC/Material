@@ -10,7 +10,7 @@ from setuptools import setup  # , find_packages
 # from distutils.core import setup
 
 setup(name='iagpyboot',
-      version='0.3',
+      version='0.3b',
       description='IAG Python Boot Camp example',
       author='Daniel Moser',
       author_email='moser@usp.br',
