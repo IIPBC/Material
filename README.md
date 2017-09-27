@@ -1,6 +1,11 @@
 # Material
 Lecture's and hands-on materials
 
+## For Petr Skoda's lecture, you can access it in the web:
+
+Astroinformatics - Extracting New Knowledge about Universe in the Epoch of Petabyte-Scaled Archives
+http://stelweb.asu.cas.cz/~skoda/SAO_PAULO/defSaoPaulo-skoda.pdf
+
 ## For Daniel Moser's lectures, you can also access them in the web:
 
 Object Oriented Programming (OOP): http://danmoser.github.io/notes/python-oop.html
